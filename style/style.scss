@@ -1,0 +1,92 @@
+@import "_normalize";
+@import "_reset";
+
+@font-face {
+  font-family: "Gotham-bold";
+  src: url("../fonts/gotham_bold.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham-book";
+  src: url("../fonts/gotham_book.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham-medium";
+  src: url("../fonts/gotham_medium.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  --color-text-ticker: #ffffff;
+  --backgroung-color-ticker: #ff008a;
+}
+
+.container {
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+  height: 85px;
+  display: flex;
+  overflow-x: hidden;
+
+  &__ticker {
+    height: 32px;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+    background-color: var(--backgroung-color-ticker);
+
+    &_bold {
+      font-family: "Gotham-bold", sans-serif;
+    }
+
+    &__one,
+    &__two {
+      font-family: "Gotham-medium", sans-serif;
+      font-size: 14px;
+      color: var(--color-text-ticker);
+      white-space: nowrap;
+    }
+
+    &__one {
+      animation: marquee1 20s infinite linear;
+      animation-delay: -20s;
+    }
+
+    &__two {
+      animation: marquee2 20s infinite linear;
+      animation-delay: -10s;
+    }
+
+    &__one:after,
+    &__two::after {
+      content: " SPECIAL OFFER + FREE DELIVERY 2-4 DAYS IN UK 🇬🇧 ";
+    }
+  }
+}
+
+@keyframes marquee1 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee2 {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
